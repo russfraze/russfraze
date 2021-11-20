@@ -2,7 +2,7 @@
 
 
 
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=russfraze&bg_color=#2A2A2A)](https://github.com/anuraghazra/github-readme-stats)
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=russfraze&bg_color=#32a852)](https://github.com/anuraghazra/github-readme-stats)
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=russfraze)](https://github.com/anuraghazra/github-readme-stats)
 
