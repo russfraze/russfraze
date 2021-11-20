@@ -1,6 +1,6 @@
 ### Welcome to my profile. 👋
 
-https://img.shields.io/badge/dynamic/json?url=<URL>&style=flat&logo=appveyor
+https://img.shields.io/endpoint?url=<URL>&style<STYLE>
 
 [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=russfraze&show_icons=true&bg_color=2A2A2A&text_color=AEB1BA&icon_color=CDFE02&title_color=AEB1BA)](https://github.com/anuraghazra/github-readme-stats)
 
