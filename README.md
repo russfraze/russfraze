@@ -1,6 +1,6 @@
 ### Welcome to my profile. 👋
 
-![My Tech Skills](https://img.shields.io/static/v1?label=<LABEL>&message=<JavaScript>&color=<COLOR>)
+![My Tech Skills](https://img.shields.io/static/v1?label=<LABEL>&message=JavaScript&label=healthinesses&color=<COLOR>)
 
 [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=russfraze&show_icons=true&bg_color=2A2A2A&text_color=AEB1BA&icon_color=CDFE02&title_color=AEB1BA)](https://github.com/anuraghazra/github-readme-stats)
 
