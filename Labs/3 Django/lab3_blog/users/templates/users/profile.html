@@ -1,0 +1,58 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+
+
+{% block content %}
+
+<style>
+    .bio{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-bottom: 90px;
+    }
+
+    .bio p{
+        margin-right: 15px;
+    }
+
+    .write-btn {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding-bottom: 35px;
+    }
+
+    .ed_buttons a {
+        color: #311b92;
+    }
+
+</style>
+
+<div>
+    <h1>Welcome {{ user.username }}</h1>
+
+    <div class="bio">
+        <p>Bio:</p> {{ user.profile.bio }}
+    </div>
+    <br>
+
+    <div class="write-btn">
+        <a class="btn deep-purple accent-2" href="{% url 'blog:create' %}">write</a>
+    </div>
+
+    {% for post in user_posts %}
+    <div class="edit_delete">
+        <h2>{{ post.title }}</h2>
+        <div class="ed_buttons">
+            <a class="btn deep-purple lighten-4" href="{% url 'blog:edit' post.id %}">edit</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+

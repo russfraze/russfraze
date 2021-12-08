@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get Your Blog On</title>
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        p {
+            font-family: 'Roboto Slab', serif;
+            text-align: left;
+            color: #311b92;
+            font-weight: 300;
+            
+        }
+
+        h1{
+            font-size: 43px;
+        }
+
+        h2 {
+            font-size: 25px;
+            font-weight: 200;
+            color: #311b92;
+        }
+
+        h3 {
+            color: #311b92;
+            font-size: 18px;
+            margin-left: 25px;
+            padding-bottom: 10px;
+        }
+
+        .input-field label {
+            color: #311b92;
+        }
+
+        .input-field {
+            border-bottom: 1px solid color: #311b92;
+            box-shadow: 0 0px 0 0 #311b92;
+        }
+
+        textarea.materialize-textarea {
+            border-bottom: 1px solid #311b92;
+        }
+
+
+        body{
+            background-color: #b39ddb;
+        }
+
+        .nav-wrapper li{
+            font-family: 'Roboto Slab', serif;
+            font-weight: 200;
+        }
+
+        .blog-logo{
+            font-family: 'Roboto Slab', serif;
+            margin-left: 25px;
+            letter-spacing: 10px;
+            font-weight: 600; 
+        }
+
+        .center{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+        }
+
+        .centered {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 800px;
+        }
+
+        .each_post {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            background-color: #d1c4e9;
+        }
+
+        .each_post h2, p{
+            margin-left: 20px;
+        }
+
+        .each_post h2 {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .edit_delete {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+        }
+
+        .btn {
+            background-color: #311b92;
+            margin-bottom: 20px;
+        }
+
+       .checkbox-blue-grey[type="checkbox"].filled-in:checked+span:not(.lever):after {
+        border: 2px solid #311b92;
+        background-color: #311b92;
+        }
+
+        .edit_delete h2{
+            margin: 0px;
+        }
+
+        .edit_delete a{
+            margin-left: 20px;
+        }
+
+        .ed_buttons {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .profile_img {
+        width: 65px;
+        height: 65px;
+        margin-bottom: 20px;
+        }
+
+        .user-info {
+            display: flex;
+            flex-direction: row;
+            margin-left: 20px;
+        }
+
+        .logo{
+        width: 80px;
+        height: 80px;
+        margin-left: 70px;
+     
+        }
+
+        .logo-header{
+            display: flex;
+            margin-bottom: 120px;
+        }
+
+        .youtube-player {
+            width: 720px;
+            height: 480px;
+        }
+        
+        {% load static %}
+
+    </style>
+</head>
+
+<body>
+
+
+    <nav>
+        <div class="nav-wrapper deep-purple darken-4">
+            
+
+            <a href="/blog/" class="blog-logo">MUSIC BLOG
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'users:logout' %}">Logout</a></li>
+                <li><a href="{% url 'users:profile' %}">Profile</a></li>
+                {% else %}
+                <li><a href="{% url 'users:login' %}">Login</a></li>
+                <li><a href="{% url 'users:register' %}">Register</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <picture>
+        <img src="{{record.png}}" alt="">
+    </picture>
+
+    <div class="logo-header">
+        <img class="logo" src="{% static 'blog/record.png' %}" alt=""><h3>{% block title %}{% endblock %}</h3>
+    </div>
+
+    <div class="center">
+    <main class="centered">
+        {% block content%} {% endblock %}
+    </main>
+    </div>
+
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+
+</body>
+
+</html>
+
+

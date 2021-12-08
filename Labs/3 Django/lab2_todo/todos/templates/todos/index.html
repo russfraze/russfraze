@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Dos</title>
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <style>
+        * {
+            color:ghostwhite
+        }
+
+        h2{ 
+            margin: 0px;
+            font-size: 14px;
+            color:rgb(188, 188, 189)
+        }
+        body h3{
+            font-family: 'Abril Fatface', cursive;
+        }
+        body{
+            background-color: dimgrey;
+            font-family: 'Open Sans', sans-serif;
+            
+        }
+        .single_item{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 35px;
+        }
+
+        .single_item_buttons{
+            display: flex;
+            min-width: 200px;
+            justify-content: space-between;
+        }
+        .done_item{
+            display: flex;
+            justify-content: space-between;
+            text-decoration:line-through
+        }
+
+        .done_item a {
+            /* position:absolute;
+            left: 925px;
+            padding-left: 25px; */
+        }
+     
+
+      
+      
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h3>To Do List Manager</h3>
+
+        <form action="{% url 'todos:update'%}" method="post">
+
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="first_name" type="text" name="item" class="validate">
+                <label for="first_name">To Do Item</label>
+            </div>
+
+
+            <div class="input-field col s12">
+
+                <select name="priority">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">High</option>
+                    <option value="2" selected >Medium</option>
+                    <option value="3">Low</option>
+                </select>
+                <label>Select Priority Level</label>
+            </div>
+
+            <div>
+
+                <input class="btn purple darken-4" type="submit" value="update">
+
+
+            </div>
+            {% csrf_token %}
+        </form>
+
+        <ul>
+            {% for todo_item in todo_items %}
+            {% if todo_item.completed_date == None %}
+            <li class="single_item">
+                {{todo_item.text}} 
+                <div class="single_item_buttons">
+                    
+                    <h2>{{todo_item.priority}}</h2>
+
+                    <a href="{% url 'todos:delete' todo_item.id %}">
+                        <i class="material-icons">clear</i>
+                    </a>
+
+                    <a href="{% url 'todos:done' todo_item.id %}">
+                        <i class="material-icons">check</i>
+                    </a>
+                </div>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        
+        <ul>
+            
+            
+            {% for todo_item in todo_items %}
+            {% if todo_item.completed_date != None %}
+            <li class="done_item">
+                {{todo_item.text}} 
+                {{todo_item.priority}}
+                <a href="{% url 'todos:delete' todo_item.id %}">
+                    <i class="material-icons">clear</i>
+                </a>
+            </li>
+            {% endif %}
+            {% endfor %}
+            
+        </ul>
+
+
+    </div>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, {});
+        });
+    </script>
+</body>
+
+</html>
+
