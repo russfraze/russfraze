@@ -7,7 +7,7 @@ from django.utils import timezone
 
 def index(request):
     context = {
-        'posts': Blogpost.objects.all()
+        'posts': Blogpost.objects.all().order_by('-date_created')
     }
     return render(request, 'blog/index.html', context)
 
