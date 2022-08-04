@@ -5,7 +5,8 @@
 Username and password authentication  
 Create posts   
 Edit posts   
-Delete posts   
+Delete posts  
+Upload profile image
 View posts in user profile   
 
 
