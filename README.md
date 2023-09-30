@@ -6,8 +6,8 @@
 
 
 
--🔭 I’m currently working on russfraze.github.io
--🌱 I’m currently learning React.
+-🔭 I’m currently working on a memory game.
+-🌱 I’m currently learning React Testing Library and Jest.
 
 - 📫 How to reach me: 
 - russell.fraze@gmail.com
